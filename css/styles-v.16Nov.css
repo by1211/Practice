@@ -1,0 +1,216 @@
+body {
+  margin: 40px;
+}
+
+/*
+EXPERIMENT 1
+*/
+
+.wrapper1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 1fr 1fr 1fr */
+  /* grid-auto-rows: minmax(1fr, auto); auto means stretch evenly according
+  to the tallest item */
+  grid-auto-rows: minmax(100px, auto);
+  column-gap: 10px;
+  row-gap: 1em;
+}
+
+.wrapper1 > div {
+  padding: 1em;
+  background-color: rgba(102,205,170,0.5);
+  border: 1px solid;
+}
+
+.box-ex1 {
+  /* grid-column: 1 / 4; */
+}
+
+.one {
+  /* grid-column-start: 1;
+  grid-column-end: 4;
+  can be replaced by grid-column: 1 / 4; */
+  display: grid;
+  grid-column: 1 / 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.nested {
+  padding: 1em;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  background-color: rgba(102,205,170,1);
+}
+
+.two {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+
+/*
+EXPERIMENT 2
+*/
+
+.sidebar {
+  grid-area: sidebar;
+}
+.content {
+  grid-area: content;
+}
+
+.header {
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.wrapper2 {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas:
+  "....... header header"
+  "sidebar content content"
+  "footer footer footer";
+  /* background-color: SlateBlue; */
+  /* opacity: 0.5; */
+  color: white;
+}
+
+.box-ex2 {
+  background-color: SlateBlue;
+  padding: 20px;
+}
+
+.header,
+.footer {
+  background-color: DarkSlateBlue;
+  /* opacity: 0.5; */
+}
+
+/*
+EXPERIMENT 3
+*/
+
+.wrapper3 {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, [col] 1fr);
+  grid-template-rows: repeat(2, [row] auto);
+}
+
+.box-ex3 {
+  background-color: Maroon;
+  color: white;
+  padding: 20px;
+  text-transform: uppercase;
+}
+
+.box-ex3 .box-ex3 {
+  background-color: Sienna;
+}
+
+.a { /* what does this whole thing mean?? */
+  grid-column: col / span 2;
+  grid-row: row;
+}
+
+.b { /* what does this whole thing mean?? */
+  grid-column: col 3 / span 2;
+  grid-row: row;
+}
+
+.c { /* what does this whole thing mean?? */
+  grid-column: col / span 2;
+  grid-row: row 2;
+}
+
+.d { /* what does this whole thing mean?? */
+  grid-column: col 3 / span 2;
+  grid-row: row 2;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.e {
+  grid-column: 1 / 3; /* starts at first gridline,
+                        ends at third gridline */
+  grid-row: 1;
+}
+
+.f {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.g {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/*
+EXPERIMENT 4
+*/
+
+.wrapper4 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+  grid-gap: 10px;
+  background-color: Limegreen;
+}
+
+.box-ex4 {
+  padding: 1em;
+  border: 1px solid black;
+  background-color: Palegreen;
+}
+
+.box1 {
+  /* grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3; */
+  grid-column: 1 / 4;
+  grid-row: 1 / 3
+}
+
+.box2 {
+  /* grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 4; */
+  grid-column: 1;
+  grid-row: 2 / 4;
+}
+
+.box3 {
+  /* grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4; */
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.box4 {
+  /* grid-column-start: 3;
+  grid-row-start: 3;
+  grid-row-end: 4; */
+  grid-column: 3;
+  grid-row: 3 / 4;
+}
+
+.box5 {
+  /* grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4; */
+  grid-column: 1 / 2;
+  grid-row: 4;
+}
